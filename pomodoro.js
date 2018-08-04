@@ -35,7 +35,7 @@ function pomodoro() {
         notifier.notify(
             {
                 title: 'Take a break',
-                message: 'свободна на 5 минут',
+                message: 'свобода на 5 минут',
                 icon: path.join(__dirname, 'icons/break_icon.png'),
                 sound: true,
                 wait: false
