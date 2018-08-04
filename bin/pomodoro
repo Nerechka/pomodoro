@@ -1,0 +1,4 @@
+#!/usr/bin/env node-r_esm
+import runTimer from '../pomodoro.js';
+
+runTimer();

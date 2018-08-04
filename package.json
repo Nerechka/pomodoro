@@ -1,0 +1,10 @@
+{
+  "name": "pomodoro",
+  "version": "0.0.1",
+  "description": "cute timer",
+  "author": "Imaykina A.",
+  "license": "ISC",
+  "devDependencies": {
+    "node-notifier": "^5.2.1"
+  }
+}
