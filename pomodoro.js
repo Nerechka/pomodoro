@@ -1,6 +1,7 @@
 import pluralize from './pluralize.js';
-const notifier = require('node-notifier');
-const path = require('path');
+import notifier from 'node-notifier';
+import path from 'path';
+
 
 function pomodoro() {
     notifier.notify(
@@ -11,8 +12,9 @@ function pomodoro() {
             sound: true,
             wait: true
         },
-        function (err, response) {
-            console.log('Работа началась в ' + '')
+        function () {
+            let date = new Date();
+            console.log('Работа началась в ' + date.getHours() + ':' + date.getMinutes())
             let time = 1;
             let timer = setInterval(function () {
                 console.log('Времени прошло: ' + time + ' ' + pluralize(time, ['минута', 'минуты', 'минут']));

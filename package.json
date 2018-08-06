@@ -5,6 +5,10 @@
   "author": "Imaykina A.",
   "license": "ISC",
   "devDependencies": {
-    "node-notifier": "^5.2.1"
+    "node-notifier": "^5.2.1",
+    "esm": "^3.0.66"
+  },
+  "dependencies": {
+    "node-r_esm": "^0.1.0"
   }
 }
