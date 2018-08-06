@@ -1,22 +1,18 @@
 import pluralize from './pluralize.js';
+const notifier = require('node-notifier');
+const path = require('path');
 
 function pomodoro() {
-    const notifier = require('node-notifier');
-    const path = require('path');
-
     notifier.notify(
         {
             title: 'Work hard',
             message: 'начало 25 минут продуктивности',
             icon: path.join(__dirname, 'icons/work_icon.png'),
             sound: true,
-            wait: true,
-            urgency: void 0,
-            time: void 0,
-            category: void 0,
-            hint: void 0
+            wait: true
         },
         function (err, response) {
+            console.log('Работа началась в ' + '')
             let time = 1;
             let timer = setInterval(function () {
                 console.log('Времени прошло: ' + time + ' ' + pluralize(time, ['минута', 'минуты', 'минут']));
@@ -27,9 +23,10 @@ function pomodoro() {
                 clearInterval(timer);
                 takeBreak();
 
-            }, 25000*60);
+            }, 25*1000*60);
         }
     );
+}
 
     function takeBreak() {
         notifier.notify(
@@ -40,13 +37,11 @@ function pomodoro() {
                 sound: true,
                 wait: false
             },
-            function (err, response) {
+            function () {
                 console.log('Время работы закончилось')
 
             })
     }
-
-}
 
 
 export default pomodoro;
