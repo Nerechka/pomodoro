@@ -1,7 +1,7 @@
 import pluralize from './pluralize.js';
 import notifier from 'node-notifier';
 import path from 'path';
-
+let date = new Date();
 
 function pomodoro() {
     notifier.notify(
@@ -13,8 +13,7 @@ function pomodoro() {
             wait: true
         },
         function () {
-            let date = new Date();
-            console.log('Работа началась в ' + date.getHours() + ':' + date.getMinutes())
+            console.log('🔻 Работа началась в ' + date.getHours() + ':' + date.getMinutes())
             let time = 1;
             let timer = setInterval(function () {
                 console.log('Времени прошло: ' + time + ' ' + pluralize(time, ['минута', 'минуты', 'минут']));
@@ -40,7 +39,8 @@ function pomodoro() {
                 wait: false
             },
             function () {
-                console.log('Время работы закончилось')
+                console.log('🔺 Время работы закончилось');
+                console.log('Сейчас ' + date.getHours() + ':' + date.getMinutes())
 
             })
     }
