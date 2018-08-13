@@ -50,7 +50,6 @@ function takeBreak() {
 }
 
 function getEndTime() {
-    console.log((date.getMinutes() + 25))
     if ((date.getMinutes() + 25) > 59) {
         minutesOfEnd = date.getMinutes() + 25 - 60;
         hoursOfEnd = date.getHours() + 1;
