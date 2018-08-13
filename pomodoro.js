@@ -1,7 +1,10 @@
 import pluralize from './pluralize.js';
 import notifier from 'node-notifier';
 import path from 'path';
+
 let date = new Date();
+let hoursOfEnd = 0;
+let minutesOfEnd = 0;
 
 function pomodoro() {
     notifier.notify(
@@ -29,21 +32,38 @@ function pomodoro() {
     );
 }
 
-    function takeBreak() {
-        notifier.notify(
-            {
-                title: 'Take a break',
-                message: 'свобода на 5 минут',
-                icon: path.join(__dirname, 'icons/break_icon.png'),
-                sound: true,
-                wait: false
-            },
-            function () {
-                console.log('🔺 Время работы закончилось');
-                console.log('Сейчас ' + date.getHours() + ':' + date.getMinutes())
+function takeBreak() {
+    getEndTime();
+    notifier.notify(
+        {
+            title: 'Take a break',
+            message: 'свобода на 5 минут',
+            icon: path.join(__dirname, 'icons/break_icon.png'),
+            sound: true,
+            wait: false
+        },
+        function () {
+            console.log('🔺 Время работы закончилось');
+            console.log('Сейчас ' + hoursOfEnd + ':' + minutesOfEnd)
 
-            })
+        })
+}
+
+function getEndTime() {
+    console.log((date.getMinutes() + 25))
+    if ((date.getMinutes() + 25) > 59) {
+        minutesOfEnd = date.getMinutes() + 25 - 60;
+        hoursOfEnd = date.getHours() + 1;
     }
+    if (hoursOfEnd == 25) {
+        hoursOfEnd = 0;
+    }
+    if ((date.getMinutes() + 25) < 59) {
+        minutesOfEnd = date.getMinutes() + 25;
+        hoursOfEnd = date.getHours();
+    }
+
+}
 
 
 export default pomodoro;
