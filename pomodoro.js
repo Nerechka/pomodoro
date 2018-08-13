@@ -54,7 +54,7 @@ function getEndTime() {
         minutesOfEnd = date.getMinutes() + 25 - 60;
         hoursOfEnd = date.getHours() + 1;
     }
-    if (hoursOfEnd == 25) {
+    if (hoursOfEnd == 24) {
         hoursOfEnd = 0;
     }
     if ((date.getMinutes() + 25) < 59) {
